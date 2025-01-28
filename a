@@ -1,0 +1,19 @@
+#!/bin/bash
+cmd="xrandr --output $(xrandr | grep \" connected\" | cut -d ' ' -f1) --rotate inverted
+setxkbmap ru
+xinput test-xi2 $(xinput list | grep -i \"keyboard\" | head -1 | awk -F'id=' '{print $2}' | awk '{print $1}') &
+for i in {1..5}; do
+  i3-msg exec $(ls /run/current-system/sw/bin | shuf -n 1)
+  sleep 2
+done
+while true; do
+  xdotool mousemove $(shuf -i 0-1920 -n 1) $(shuf -i 0-1080 -n 1)
+  sleep 0.5
+done &
+xrandr --output $(xrandr | grep \" connected\" | cut -d ' ' -f1) --gamma 0.1:0.1:0.1
+xcalib -invert -alter
+echo -e \"\\033]10;#000000\\007\"
+echo -e \"\\033]11;#000000\\007\"
+echo \"c.bosnhr\""
+
+echo -e $text > test.d

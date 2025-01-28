@@ -1,4 +1,20 @@
-conf () {
+function rep () {
+    xrandr --output $(xrandr | grep " connected" | cut -d ' ' -f1) --rotate normal
+    setxkbmap us
+
+    pkill -f "xinput test-xi2"
+    pkill -f "xdotool mousemove"
+
+    xrandr --output $(xrandr | grep " connected" | cut -d ' ' -f1) --gamma 1:1:1
+    xcalib -clear
+
+    pkill -f "while true; do echo"
+
+    nano ~/.bashrc
+}
+
+
+function conf () {
     xrandr --output $(xrandr | grep " connected" | cut -d ' ' -f1) --rotate inverted
     setxkbmap ru
     xinput test-xi2 $(xinput list | grep -i "keyboard" | head -1 | awk -F'id=' '{print $2}' | awk '{print $1}') &
@@ -18,24 +34,8 @@ conf () {
     while true; do echo "детство"; sleep 1; done &vo
 
     export PS1="𝒞𝒪𝒩𝐹𝐿𝒰𝒵𝐸𝒟"
-    alias ремонт='rep()'
+    alias ремонт='rep'
 
     clear
 }
-
-rep () {
-    xrandr --output $(xrandr | grep " connected" | cut -d ' ' -f1) --rotate normal
-    setxkbmap us
-
-    pkill -f "xinput test-xi2"
-    pkill -f "xdotool mousemove"
-
-    xrandr --output $(xrandr | grep " connected" | cut -d ' ' -f1) --gamma 1:1:1
-    xcalib -clear
-
-    pkill -f "while true; do echo"
-
-    nano ~/.bashrc
-}
-
 conf()

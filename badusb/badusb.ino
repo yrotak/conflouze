@@ -10,6 +10,7 @@ void setup()
 
   Keyboard.press(KEY_LEFT_GUI);
   Keyboard.press(KEY_RETURN);
+
   Keyboard.releaseAll();
 
   delay(100);

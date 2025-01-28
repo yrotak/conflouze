@@ -18,6 +18,13 @@ void setup()
   typeKey(KEY_RETURN);
   Keyboard.releaseAll();
 
+  delay(1000);
+
+  Keyboard.press(KEY_LEFT_GUI);
+  Keyboard.press(KEY_LEFT_SHIFT);
+  Keyboard.press('q');
+  Keyboard.releaseAll();
+
 }
 
 void typeKey(int key)

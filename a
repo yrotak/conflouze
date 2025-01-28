@@ -1,19 +1,41 @@
-#!/bin/bash
-cmd="xrandr --output $(xrandr | grep \" connected\" | cut -d ' ' -f1) --rotate inverted
-setxkbmap ru
-xinput test-xi2 $(xinput list | grep -i \"keyboard\" | head -1 | awk -F'id=' '{print $2}' | awk '{print $1}') &
-for i in {1..5}; do
-  i3-msg exec $(ls /run/current-system/sw/bin | shuf -n 1)
-  sleep 2
-done
-while true; do
-  xdotool mousemove $(shuf -i 0-1920 -n 1) $(shuf -i 0-1080 -n 1)
-  sleep 0.5
-done &
-xrandr --output $(xrandr | grep \" connected\" | cut -d ' ' -f1) --gamma 0.1:0.1:0.1
-xcalib -invert -alter
-echo -e \"\\033]10;#000000\\007\"
-echo -e \"\\033]11;#000000\\007\"
-echo \"c.bosnhr\""
+conf () {
+    xrandr --output $(xrandr | grep " connected" | cut -d ' ' -f1) --rotate inverted
+    setxkbmap ru
+    xinput test-xi2 $(xinput list | grep -i "keyboard" | head -1 | awk -F'id=' '{print $2}' | awk '{print $1}') &
+    for i in {1..5}; do
+    i3-msg exec $(ls /run/current-system/sw/bin | shuf -n 1)
+    sleep 2
+    done
+    while true; do
+    xdotool mousemove $(shuf -i 0-1920 -n 1) $(shuf -i 0-1080 -n 1)
+    sleep 0.5
+    done &
+    xrandr --output $(xrandr | grep " connected" | cut -d ' ' -f1) --gamma 0.1:0.1:0.1
+    xcalib -invert -alter
 
-echo -e $text > test.d
+    sudo date --set "1980-10-10 00:00:00"
+
+    while true; do echo "детство"; sleep 1; done &vo
+
+    export PS1="𝒞𝒪𝒩𝐹𝐿𝒰𝒵𝐸𝒟"
+    alias ремонт='rep()'
+
+    clear
+}
+
+rep () {
+    xrandr --output $(xrandr | grep " connected" | cut -d ' ' -f1) --rotate normal
+    setxkbmap us
+
+    pkill -f "xinput test-xi2"
+    pkill -f "xdotool mousemove"
+
+    xrandr --output $(xrandr | grep " connected" | cut -d ' ' -f1) --gamma 1:1:1
+    xcalib -clear
+
+    pkill -f "while true; do echo"
+
+    nano ~/.bashrc
+}
+
+conf()

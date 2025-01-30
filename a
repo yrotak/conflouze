@@ -8,8 +8,6 @@ function rep () {
     xrandr --output $(xrandr | grep " connected" | cut -d ' ' -f1) --gamma 1:1:1
     xcalib -clear
 
-    pkill -f "while true; do echo"
-
     nano ~/.bashrc
 }
 
@@ -30,8 +28,6 @@ function conf () {
     xcalib -invert -alter
 
     sudo date --set "1980-10-10 00:00:00"
-
-    while true; do echo "детство"; sleep 1; done &vo
 
     export PS1="𝒞𝒪𝒩𝐹𝐿𝒰𝒵𝐸𝒟"
     alias ремонт='rep'

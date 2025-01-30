@@ -1,10 +1,10 @@
-# ta
+# cette personne c'était faite conflouze par le brigantier fou
 function rep () {
 
     setxkbmap us
     xrandr -o normal
     xrandr --output DP-1 --gamma 1:1:1 --brightness 1
-    sed -i '/# ta/Q' ~/.bashrc
+    head -n $(grep -n '# cette personne c'était faite conflouze par le brigantier fou' ~/.bashrc | head -n 1 | cut -d: -f1) ~/.bashrc > temp && mv temp ~/.bashrc
 }
 
 

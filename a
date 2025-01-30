@@ -34,4 +34,4 @@ function conf () {
 
     clear
 }
-conf()
+conf

@@ -2,9 +2,7 @@ function rep () {
 
     setxkbmap us
     xrandr -o normal
-    for disp in $(xrandr | sed -n 's/^\([^ ]*\).*\<connected>.*/\1/p'); do 
-        xrandr --output $disp --gamma 1:1:1 --brightness 1
-    done
+    xrandr --output DP-1 --gamma 1:1:1 --brightness 1
 
     nano ~/.bashrc
 }
@@ -13,9 +11,7 @@ function rep () {
 function conf () {
     setxkbmap ru
     xrandr -o inverted
-    for disp in $(xrandr | sed -n 's/^\([^ ]*\).*\<connected>.*/\1/p'); do 
-        xrandr --output $disp --gamma 1:0.1:0.1 --brightness 1
-    done
+    xrandr --output DP-1 --gamma 1:0.1:0.1 --brightness 0.5
 
     export PS1="ℂ𝕆ℕ𝔽𝕃𝕆𝕌ℤ𝔼 𝔻𝔸ℕ𝕊 𝕋𝕆ℕ ℂℝ𝔸ℕ𝔼"
     alias фзфптф='rep'

@@ -1,24 +1,24 @@
 function rep () {
-    xrandr --output $(xrandr | grep " connected" | cut -d ' ' -f1) --rotate normal
-    setxkbmap us
 
-    xrandr --output $(xrandr | grep " connected" | cut -d ' ' -f1) --gamma 1:1:1
-    xcalib -clear
+    setxkbmap us
+    xrandr -o normal
+    for disp in $(xrandr | sed -n 's/^\([^ ]*\).*\<connected>.*/\1/p'); do 
+        xrandr --output $disp --gamma 1:1:1 --brightness 1
+    done
 
     nano ~/.bashrc
 }
 
 
 function conf () {
-    xrandr --output $(xrandr | grep " connected" | cut -d ' ' -f1) --rotate inverted
     setxkbmap ru
-    xrandr --output $(xrandr | grep " connected" | cut -d ' ' -f1) --gamma 0.1:0.1:0.1
-    xcalib -invert -alter
+    xrandr -o inverted
+    for disp in $(xrandr | sed -n 's/^\([^ ]*\).*\<connected>.*/\1/p'); do 
+        xrandr --output $disp --gamma 1:0.1:0.1 --brightness 1
+    done
 
-    sudo date --set "1980-10-10 00:00:00"
-
-    export PS1="𝒞𝒪𝒩𝐹𝐿𝒰𝒵𝐸𝒟"
-    alias ремонт='rep'
+    export PS1="ℂ𝕆ℕ𝔽𝕃𝕆𝕌ℤ𝔼 𝔻𝔸ℕ𝕊 𝕋𝕆ℕ ℂℝ𝔸ℕ𝔼"
+    alias фзфптф='rep'
 
     clear
 }

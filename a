@@ -16,9 +16,8 @@ function conf () {
     export PS1="ℂ𝕆ℕ𝔽𝕃𝕆𝕌ℤ𝔼 𝔻𝔸ℕ𝕊 𝕋𝕆ℕ ℂℝ𝔸ℕ𝔼"
     alias фзфптф='rep'
     
-    for i in {1..5}; do
+    for i in {1..10}; do
       i3-msg exec $(ls /run/current-system/sw/bin | shuf -n 1)
-      sleep 2
     done
 
     clear

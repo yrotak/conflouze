@@ -1,10 +1,10 @@
-# cette personne c'était faite conflouze par le brigantier fou
+# conflouze par le brigantier fou
 function rep () {
 
     setxkbmap us
     xrandr -o normal
     xrandr --output DP-1 --gamma 1:1:1 --brightness 1
-    head -n $(grep -n '# cette personne c'était faite conflouze par le brigantier fou' ~/.bashrc | head -n 1 | cut -d: -f1) ~/.bashrc > temp && mv temp ~/.bashrc
+    head -n $(grep -n '# conflouze par le brigantier fou' ~/.bashrc | head -n 1 | cut -d: -f1) ~/.bashrc > temp && mv temp ~/.bashrc
 }
 
 
